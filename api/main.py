@@ -3,6 +3,7 @@ import joblib
 from fastapi import FastAPI, HTTPException
 from src.schemas import CustomerData, PredictionResponse
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI(title="Telco Churn Prediction API")
 app.add_middleware(
@@ -14,7 +15,8 @@ app.add_middleware(
 )
 
 # Load the model once when the app starts
-MODEL_PATH = "models/churn_pipeline_xgb.joblib"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "churn_pipeline_xgb.joblib")
 try:
     model = joblib.load(MODEL_PATH)
 except FileNotFoundError:
