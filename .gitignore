@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Data & Models
+# Un-comment the line below if your model file is > 50MB
+# models/churn_pipeline_xgb.joblib
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
